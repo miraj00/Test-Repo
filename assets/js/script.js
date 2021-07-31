@@ -9,7 +9,7 @@ $(document).ready(function () {
   });
       
 
-  $.backstretch("./assets/images/pic2.JPEG");
+  $.backstretch("./assets/images/pic2.JPG");
 
 /*
   function capture() {
