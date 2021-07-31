@@ -1,0 +1,109 @@
+header {
+  padding: 0px;
+  background-size: initial;
+  background-position: center;
+  background-attachment: initial;
+  
+/*     background-image: url("../images/Header-Pic.jpeg"); */
+  position:sticky;
+  top: 0;
+
+  z-index: 9999;
+  height: 20px;
+  width: 100%;
+  text-align: right;
+  font-size: 20px;
+  color:rgb(253, 253, 253);
+}
+
+.white-text {
+  padding-right: 20px;
+}
+
+#centerText  {    
+padding-top: 80px;
+}
+
+
+.wind-image {
+padding: 100px 0px 0px 0px;
+width: 400px;
+height: 400px;
+
+}
+.flex-container {
+display: flex;
+justify-content: center;    
+width: 100%;
+}
+
+.flex-container > li {
+/*    background-color: #f1f1f1; */
+justify-content: center;
+width: 3000px;
+font-size: 5px;
+}
+
+#Carousel {
+height: 700px;
+margin-top: 300px;
+}
+
+div.col.s3, div.col.s9 {
+border: 1px solid black; 
+height: 550px;
+}
+
+div.col.s1 {
+width: 500px;
+height: 250px;
+border: 1px solid black;
+text-align: center;
+}
+
+.row .col.s1 {
+width: 11%;
+text-align: center;
+}
+
+#parkInfo {
+width: 100%;
+text-align: center;
+}
+.container {
+width: 1300px;
+padding-top: 30px;
+
+}
+.row {
+
+align-items: stretch;
+}
+#centralize {
+align-items: center;
+}
+#parkCode {
+display: none;
+}
+
+.myVideos {
+align-items: center;
+width: 80%;
+}
+
+.videoHeader {
+text-align: center;
+font-size: 40px;
+background: rgb(125, 159, 221); 
+}
+
+.vids1 .vids2 .vids3 .vids4 {
+margin-left: 50px;
+align-content: center;
+}
+
+#videoRow1, #videoRow2  {
+
+padding: 20px 0 20px 100px;
+}
+
