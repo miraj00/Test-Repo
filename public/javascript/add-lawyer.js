@@ -1,14 +1,14 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const post_text = document.querySelector('input[name="post-text"]').value;
+  const office_name = document.querySelector('input[name="post-title"]').value;
+  const office_address = document.querySelector('input[name="post-text"]').value;
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
-      title,
-      post_text
+      office_name,
+      office_address
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -16,7 +16,7 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/lawyer');
   } else {
     alert(response.statusText);
   }

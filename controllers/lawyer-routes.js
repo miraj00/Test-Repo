@@ -3,51 +3,101 @@ const sequelize = require('../config/connection');
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for dashboard
+
+
+
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
-  console.log('======================');
-  Post.findAll({
-    where: {
-      user_id: req.session.user_id
-    },
-    attributes: [
-      'id',
-      'post_text',
-      'title',
-      'created_at',
-     ],
-    include: [
-      // {
-      //   model: Comment,
-      //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-      //   include: {
-      //     model: User,
-      //     attributes: ['username']
-      //   }
-      // },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
-  })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('lawyer', { posts, loggedIn: true });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+//  res.json({test: "message"});
+ console.log(req.session);
+ console.log('======================');
+ Post.findAll({
+   where: {
+     user_id: req.session.user_id
+   },
+   attributes: [
+     'id',
+     'office_address',
+     'office_name',
+     'created_at',
+    ],
+   include: [
+     // {
+     //   model: Comment,
+     //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+     //   include: {
+     //     model: User,
+     //     attributes: ['username']
+     //   }
+     // },
+     {
+       model: User,
+       attributes: ['username']
+     }
+   ]
+ })
+   .then(dbPostData => {
+     const posts = dbPostData.map(post => post.get({ plain: true }));
+     res.render('lawyer', { posts, loggedIn: true });
+   })
+   .catch(err => {
+     console.log(err);
+     res.status(500).json(err);
+   });
 });
 
-router.get('/edit/:id', withAuth, (req, res) => {
+
+
+
+
+
+
+
+
+// // get all posts for dashboard
+// router.get('/', withAuth, (req, res) => {
+//   console.log(req.session);
+//   console.log('======================');
+//   Post.findAll({
+//     where: {
+//       user_id: req.session.user_id
+//     },
+//     attributes: [
+//       'id',
+//       'office_address',
+//       'office_name',
+//       'created_at',
+//      ],
+//     include: [
+//       // {
+//       //   model: Comment,
+//       //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+//       //   include: {
+//       //     model: User,
+//       //     attributes: ['username']
+//       //   }
+//       // },
+//       {
+//         model: User,
+//         attributes: ['username']
+//       }
+//     ]
+//   })
+//     .then(dbPostData => {
+//       const posts = dbPostData.map(post => post.get({ plain: true }));
+//       res.render('lawyer', { posts, loggedIn: true });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
+router.get('/lawyer/edit/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [
       'id',
-      'post_text',
-      'title',
+      'office_address',
+      'office_name',
       'created_at',
     ],
     include: [

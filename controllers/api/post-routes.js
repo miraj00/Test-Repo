@@ -9,19 +9,19 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_text',
-      'title',
+      'office_address',
+      'office_name',
       'created_at',   
     ],
     include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
+      // {
+      //   model: Comment,
+      //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+      //   include: {
+      //     model: User,
+      //     attributes: ['username']
+      //   }
+      // },
       {
         model: User,
         attributes: ['username']
@@ -42,19 +42,19 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_text',
-      'title',
+      'office_address',
+      'office_name',
       'created_at',
       ],
     include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
+      // {
+      //   model: Comment,
+      //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+      //   include: {
+      //     model: User,
+      //     attributes: ['username']
+      //   }
+      // },
       {
         model: User,
         attributes: ['username']
@@ -77,8 +77,8 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
-    title: req.body.title,
-    post_text: req.body.post_text,
+    office_name: req.body.office_name,
+    office_address: req.body.office_address,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -101,8 +101,8 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title,
-      post_text: req.body.post_text,
+      office_name: req.body.office_name,
+      office_address: req.body.office_address,
     },
     {
       where: {

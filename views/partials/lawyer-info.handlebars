@@ -4,19 +4,17 @@
 
     <div class="col-12">
       <div class="card border">
-        <h6 class="card-header text-uppercase">{{title}}</h6>
+        <h6 class="card-header text-uppercase">{{office_name}}</h6>
         
         
 
  <div class="card-body">
-   <div> {{post_text}} </div>
+   <div> {{office_address}} </div>
  
 
 
 
-    <span>Posted by {{user.username}} on {{format_date created_at}} </span>
-    | 
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}} </a>
+    <span>Updated by {{user.username}} on {{format_date created_at}} </span>
 
   </div>
 
