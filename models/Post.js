@@ -24,10 +24,9 @@ Post.init(
       allowNull: true,
       },
 
-    contactNo: {
+    contact_number: {
     type: DataTypes.INTEGER,
-    allowNull: false
-    },
+      },
 
     user_id: {
       type: DataTypes.INTEGER,

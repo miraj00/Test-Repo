@@ -3,12 +3,14 @@ async function newFormHandler(event) {
 
   const office_name = document.querySelector('input[name="post-title"]').value;
   const office_address = document.querySelector('input[name="post-text"]').value;
+  const contact_number = document.querySelector('input[name="post-contact"]').value;
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
       office_name,
-      office_address
+      office_address,
+      contact_number
     }),
     headers: {
       'Content-Type': 'application/json'

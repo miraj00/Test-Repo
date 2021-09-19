@@ -5,16 +5,22 @@
   </h2>
 
   <form class="edit-post-form">
- {{!-- <div>
-        <label for="post-title">Law Firm Name</label>
+    <div>
+      <label for="post-title">Law Firm Name :</label>
       <input class="input" name="post-title" type="text" value="{{post.office_name}}"  />
     </div>
-    <div>
-        <label for="post-content">Address</label>
-      <input id="txtbox" class="textarea" name="post-text" type="text" value="{{post.office_address}}" />
     
-   
-    </div> --}}
+    <div>
+      <label for="post-content">Firm Address :</label>
+      <input id="txtbox" class="textarea" name="post-text" type="text" value="{{post.office_address}}" />
+    </div>
+
+    <div>
+      <label for="post-content">Phone number :</label>
+      <input id="input" class="textarea" name="post-contact" type="text" value="{{post.contact_number}}" />
+    </div>    
+    
+    
     <div class="is-pulled-right">
 
      Posted on {{format_date post.created_at}}

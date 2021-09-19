@@ -3,13 +3,21 @@
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Law Firm Name</label>
+      <label for="post-title">Firm Name : </label> <br>
       <input type="text" id="post-title" name="post-title" style="font-size: 18pt; height: 30px; width:600px;" />
     </div>
+ 
     <div>
-      <label for="post-text">Firm Address </label>
+      <label for="post-text">Firm Address :</label> <br>
       <input id="post-text" name="post-text" style="font-size: 18pt; height: 200px; width:600px;"/>
     </div>
+    
+    <div>
+      <label for="post-contact">Contact Number : </label> <br>
+      <input id="post-contact" name="post-contact" style="font-size: 18pt; height: 30px; width:600px;"/>
+    </div>
+ 
+    <br>
     <button type="submit" class="button">Create</button>
   </form>
 </section>
@@ -21,10 +29,15 @@
 <section>
   <h2>List of Lawyers</h2>
   <ol>
+   
     {{#each posts as |post|}}
+      
     <li>
+   
       {{> lawyer-info post}}
+   
       <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Lawyer Information</a>
+   
     </li>
     {{/each}}
   </ol>

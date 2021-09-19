@@ -16,6 +16,7 @@ router.get('/lawyer', withAuth, (req, res) => {
       'id',
       'office_address',
       'office_name',
+      'contact_number',
       'created_at',
      ],
     include: [
@@ -58,6 +59,7 @@ router.get('/', withAuth, (req, res) => {
       'id',
       'office_address',
       'office_name',
+      'contact_number',
       'created_at',
      ],
     include: [
@@ -92,6 +94,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'id',
       'office_address',
       'office_name',
+      'contact_number',
       'created_at',
     ],
     include: [

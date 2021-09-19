@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment } = require('../../models');
+const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
       'id',
       'office_address',
       'office_name',
+      'contact_number',
       'created_at',   
     ],
     include: [
@@ -35,6 +36,8 @@ router.get('/', (req, res) => {
     });
 });
 
+
+
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -44,17 +47,10 @@ router.get('/:id', (req, res) => {
       'id',
       'office_address',
       'office_name',
+      'contact_number',
       'created_at',
       ],
     include: [
-      // {
-      //   model: Comment,
-      //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-      //   include: {
-      //     model: User,
-      //     attributes: ['username']
-      //   }
-      // },
       {
         model: User,
         attributes: ['username']
@@ -74,11 +70,14 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
+
 router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     office_name: req.body.office_name,
     office_address: req.body.office_address,
+    contact_number: req.body.contact_number,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -103,6 +102,7 @@ router.put('/:id', withAuth, (req, res) => {
     {
       office_name: req.body.office_name,
       office_address: req.body.office_address,
+      contact_number: req.body.contact_number,
     },
     {
       where: {
